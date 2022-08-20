@@ -1,2 +1,2 @@
-String baseURL = "Your APi Base Url";
-String kAPIKEY = "your Api Key";
+String baseURL = "your base url";
+String kAPIKEY = "your API key";

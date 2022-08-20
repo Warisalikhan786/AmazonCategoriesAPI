@@ -3,6 +3,8 @@
 import 'dart:convert';
 
 import 'package:amazon_api/constant.dart';
+import 'package:amazon_api/subcategory_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -49,9 +51,21 @@ class _HomeScreenState extends State<HomeScreen> {
           child: ListView.builder(
             itemCount: cateList.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text("${cateList[index]['name']}"),
-                subtitle: Text("${cateList[index]['id']}"),
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return CategoryScreen(
+                        name: cateList[index]['name'],
+                        id: cateList[index]['id'],
+                      );
+                    },
+                  ));
+                },
+                child: ListTile(
+                  title: Text("${cateList[index]['name']}"),
+                  subtitle: Text("${cateList[index]['id']}"),
+                ),
               );
             },
           ),
